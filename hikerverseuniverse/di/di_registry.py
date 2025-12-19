@@ -3,6 +3,9 @@ from typing import Protocol, Tuple
 
 import numpy as np
 
+from hikerverseuniverse.di.di_lib import Container
+from hikerverseuniverse.sensor_physics.optical_sensor_implementation import OpticalSensorImpl
+
 
 class IService(Protocol):
     def do(self) -> str: ...
@@ -21,3 +24,9 @@ class IOpticalSensor(Protocol):
                    threshold: float,
                    exposure: float, saturation_limit: float, blooming_factor: float = 0.0,
                    log_scale: bool = False, min_flux=0.0, max_flux=None, gain=1) -> Tuple[np.ndarray, np.ndarray]: ...
+
+
+# create container and register
+c = Container()
+c.register(IService, ServiceImpl, singleton=True)
+c.register(IOpticalSensor, OpticalSensorImpl, singleton=True)

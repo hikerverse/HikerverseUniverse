@@ -2,17 +2,12 @@
 import numpy as np
 
 from hikerverseuniverse.celestials.star_field import StarField
-from hikerverseuniverse.di.di_lib import Container
 from hikerverseuniverse.di.di_lib import Inject
 from hikerverseuniverse.di.di_lib import inject_constructor
-from hikerverseuniverse.di.di_registry import IService, ServiceImpl, IOpticalSensor
-from hikerverseuniverse.sensor_physics.optical_sensor_implementation import OpticalSensorImpl
+from hikerverseuniverse.di.di_registry import IService, IOpticalSensor, c
 from hikerverseuniverse.utils.math_utils import gaussian_psf
 
-# create container and register
-c = Container()
-c.register(IService, ServiceImpl, singleton=True)
-c.register(IOpticalSensor, OpticalSensorImpl, singleton=True)
+
 
 
 # constructor injection
