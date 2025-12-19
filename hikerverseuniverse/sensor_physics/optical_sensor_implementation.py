@@ -69,10 +69,11 @@ class OpticalSensorImpl:
 
 
     @staticmethod
-    def render(psf, star_field, fov_deg, resolution, aperture_diameter, band_center_m, telescope_position: np.ndarray, camera_direction: np.ndarray, up_hint: np.ndarray,
-               threshold: float,
-               exposure: float, saturation_limit: float, blooming_factor: float = 0.0,
-               log_scale: bool = False, min_flux=0.0, max_flux=None, gain=1) -> Tuple[np.ndarray, np.ndarray]:
+    def take_image(psf, star_field, fov_deg, resolution, aperture_diameter, band_center_m,
+                   telescope_position: np.ndarray, camera_direction: np.ndarray, up_hint: np.ndarray,
+                   threshold: float,
+                   exposure: float, saturation_limit: float, blooming_factor: float = 0.0,
+                   log_scale: bool = False, min_flux=0.0, max_flux=None, gain=1) -> Tuple[np.ndarray, np.ndarray]:
         H, W = resolution
         fov_y_rad = radians(fov_deg)
         f = 1.0 / tan(fov_y_rad / 2.0)

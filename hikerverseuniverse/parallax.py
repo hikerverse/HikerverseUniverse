@@ -28,15 +28,15 @@ blooming_factor = 4
 
 # Observation 1: From the first location
 cam_pos1 = np.array([0, 0, 500])
-image1, image11 = telescope.render(cam_pos1, cam_dir, up_hint, threshold=threshold,
-                             exposure=exposure, saturation_limit=saturation_limit,
-                             blooming_factor=blooming_factor, log_scale=False, gain=1)
+image1, image11 = telescope.take_image(cam_pos1, cam_dir, up_hint, threshold=threshold,
+                                       exposure=exposure, saturation_limit=saturation_limit,
+                                       blooming_factor=blooming_factor, log_scale=False, gain=1)
 
 # Observation 2: From the second location (baseline shift)
 cam_pos2 = np.array([100, 0, 500])  # Shifted along the X-axis
-image2, image22 = telescope.render(cam_pos2, cam_dir, up_hint, threshold=threshold,
-                             exposure=exposure, saturation_limit=saturation_limit,
-                             blooming_factor=blooming_factor, log_scale=False, gain=1)
+image2, image22 = telescope.take_image(cam_pos2, cam_dir, up_hint, threshold=threshold,
+                                       exposure=exposure, saturation_limit=saturation_limit,
+                                       blooming_factor=blooming_factor, log_scale=False, gain=1)
 
 # Estimate star positions from both images
 star_locations1 = telescope.scan_intensities(image11, 1e-20, cam_pos1, cam_dir, up_hint)

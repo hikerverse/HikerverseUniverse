@@ -43,18 +43,18 @@ if __name__ == "__main__":
     exposure = 100  # Adjust this value to brighten dim stars
     saturation_limit = 1e-10  # Maximum pixel intensity
     blooming_factor = 0.2 # Spread of overexposed light
-    image, intensity_img = OpticalSensorImpl.render(psf=gaussian_psf(3, 1),
-                                                    star_field=star_field,
-                                                    band_center_m = 550e-9,
-                                                    aperture_diameter=1,
-                                                    fov_deg=45,
-                                                    resolution=(512, 512),
-                                                    telescope_position=cam_pos,
-                                                    camera_direction=cam_dir,
-                                                    up_hint=up_hint, threshold=threshold,
-                                                    exposure=exposure, saturation_limit=saturation_limit,
-                                                    blooming_factor=blooming_factor, log_scale=False,
-                                                    gain=1)
+    image, intensity_img = OpticalSensorImpl.take_image(psf=gaussian_psf(3, 1),
+                                                        star_field=star_field,
+                                                        band_center_m = 550e-9,
+                                                        aperture_diameter=1,
+                                                        fov_deg=45,
+                                                        resolution=(512, 512),
+                                                        telescope_position=cam_pos,
+                                                        camera_direction=cam_dir,
+                                                        up_hint=up_hint, threshold=threshold,
+                                                        exposure=exposure, saturation_limit=saturation_limit,
+                                                        blooming_factor=blooming_factor, log_scale=False,
+                                                        gain=1)
 
 
 
