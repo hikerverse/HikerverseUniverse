@@ -1,9 +1,9 @@
 # python
 from typing import Protocol
 
-from hikerverseuniverse.di import inject_constructor
-from hikerverseuniverse.di_container import Container
-from hikerverseuniverse.di_inject import Inject
+from hikerverseuniverse.di.di_lib import Container
+from hikerverseuniverse.di.di_lib import Inject
+from hikerverseuniverse.di.di_lib import inject_constructor
 
 
 class IService(Protocol):
